@@ -1,11 +1,15 @@
 package com.jwt.authentication.dto;
 
-import lombok.Data;
+import com.jwt.authentication.model.User;
 
-@Data
 public class JwtAuthenticationResponse {
+	
 	private String token;
 	private String refreshToken;
+	private User user;
+	
+	public JwtAuthenticationResponse() {
+	}
 	public String getToken() {
 		return token;
 	}
@@ -18,5 +22,22 @@ public class JwtAuthenticationResponse {
 	public void setRefreshToken(String refreshToken) {
 		this.refreshToken = refreshToken;
 	}
+	public User getUser() {
+		return user;
+	}
+	public void setUser(User user) {
+		this.user = user;
+	}
+	public JwtAuthenticationResponse(String token, String refreshToken, User user) {
+		super();
+		this.token = token;
+		this.refreshToken = refreshToken;
+		this.user = user;
+	}
+	@Override
+	public String toString() {
+		return "JwtAuthenticationResponse [token=" + token + ", refreshToken=" + refreshToken + ", user=" + user + "]";
+	}
+	
 	
 }
