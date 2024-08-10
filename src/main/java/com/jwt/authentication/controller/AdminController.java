@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.jwt.authentication.dto.Message;
 import com.jwt.authentication.dto.AddAuctionEventRequest;
-import com.jwt.authentication.dto.AddProductRequest;
+import com.jwt.authentication.dto.ProductRequest;
 import com.jwt.authentication.model.AuctionEvent;
 import com.jwt.authentication.model.Product;
 import com.jwt.authentication.service.AuctionEventService;
@@ -27,9 +27,6 @@ import lombok.RequiredArgsConstructor;
 public class AdminController {
 	
 	@Autowired
-	ProductService productService;
-	
-	@Autowired
 	AuctionEventService auctionEventService;
 	
 	
@@ -42,11 +39,6 @@ public class AdminController {
 		return ResponseEntity.ok(message);
 	}
 	
-	@PostMapping("/addProduct")
-	public ResponseEntity<Product> addProduct(@RequestBody AddProductRequest addProductRequest){	
-		return ResponseEntity.ok(productService.addProduct(addProductRequest));
-		
-	}
 	
 	@PostMapping("/addauctionevent")
 	public ResponseEntity<AuctionEvent> addAuctionEvent(@RequestBody AddAuctionEventRequest addAuctionEventRequest ){	
