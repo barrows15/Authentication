@@ -11,11 +11,9 @@ public class SignUpRequest {
 	
 	public SignUpRequest() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 	
 	public SignUpRequest(String username, String email, String password) {
-		super();
 		this.name = username;
 		this.email = email;
 		this.password = password;

@@ -25,6 +25,8 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
+	public static String CURRENT_USER="";
+	
 	@Autowired
 	private JWTService jwtService;
 	@Autowired
@@ -46,6 +48,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 		}
 		jwt = authHeader.substring(7);
 		userEmail = jwtService.extractUserName(jwt);
+		CURRENT_USER = userEmail;
 		System.out.println(userEmail);
 		System.out.println(SecurityContextHolder.getContext().getAuthentication());
 		if (org.apache.commons.lang3.StringUtils.isNotEmpty(userEmail) && SecurityContextHolder.getContext().getAuthentication() == null) {
