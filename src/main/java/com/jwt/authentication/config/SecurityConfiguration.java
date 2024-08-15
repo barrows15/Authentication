@@ -43,7 +43,7 @@ public class SecurityConfiguration
 		http
 		.cors(Customizer.withDefaults())
 		.csrf(AbstractHttpConfigurer::disable)
-				.authorizeHttpRequests((requests) -> requests.requestMatchers("/api/v1/admin/product/getProductById/{id}","/api/v1/admin/product/delete/{id}","/api/v1/admin/product/getAll","/api/v1/auth/**")
+				.authorizeHttpRequests((requests) -> requests.requestMatchers("/v3/api-docs/**","/api-docs/**","/swagger-ui/**","/api/v1/admin/product/getProductById/{id}","/api/v1/admin/product/delete/{id}","/api/v1/admin/product/getAll","/api/v1/auth/**")
 						.permitAll()
 						.requestMatchers("/api/v1/admin").hasAnyAuthority(Role.ADMIN.name())
 						.requestMatchers("/api/v1/user").hasAnyAuthority(Role.USER.name())
