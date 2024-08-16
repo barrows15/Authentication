@@ -1,5 +1,8 @@
 package com.jwt.authentication.service.impl;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -44,4 +47,25 @@ public class BidDetailServiceImpl implements BidDetailService{
 	public List<BidDetail> getAllBidDetail() {
 		return (List<BidDetail>) bidDetailRepository.findAll();
 	}
+	
+	public List<BidDetail> getByProduct(Long producId){
+				Product product = new Product();
+				product = productRepository.findById(producId).get();
+				
+				List<BidDetail> list = new ArrayList<BidDetail>();
+//				
+//	ArrayList<StudentInformation> infos = new ArrayList<StudentInformation>();
+//	// fill array
+//	Collections.sort(infos, 
+//		Comparator.comparingInt(StudentInformation::getBirthYear).reversed());
+//				
+				
+		list = (List<BidDetail>) bidDetailRepository.findByProduct(product);
+			
+		Collections.sort(list, 
+			Comparator.comparingDouble(BidDetail::getBidPrice).reversed());
+				
+		return list;
+	};
+	
 }

@@ -1,5 +1,6 @@
 package com.jwt.authentication.dto;
 
+import java.util.Date;
 import java.util.Set;
 
 import com.jwt.authentication.model.ImageModel;
@@ -10,6 +11,7 @@ public class ProductRequest {
 	private String prodDesc;
 	private Double price;
 	private Double discountPrice;
+	private Date expiryDate;
 	private Set<ImageModel> productImages;
 	
 	public ProductRequest() {
@@ -53,20 +55,32 @@ public class ProductRequest {
 		this.prodDesc = prodDesc;
 	}
 
-	public ProductRequest(String name, String prodDesc, Double price, Double discountPrice,
+	public Date getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(Date expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	public ProductRequest(String name, String prodDesc, Double price, Double discountPrice, Date expiryDate,
 			Set<ImageModel> productImages) {
+		super();
 		this.name = name;
 		this.prodDesc = prodDesc;
 		this.price = price;
 		this.discountPrice = discountPrice;
+		this.expiryDate = expiryDate;
 		this.productImages = productImages;
 	}
 
 	@Override
 	public String toString() {
 		return "ProductRequest [name=" + name + ", prodDesc=" + prodDesc + ", price=" + price + ", discountPrice="
-				+ discountPrice + ", productImages=" + productImages + "]";
+				+ discountPrice + ", expiryDate=" + expiryDate + ", productImages=" + productImages + "]";
 	}
+
+	
 	
 	
 	

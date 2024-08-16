@@ -1,5 +1,6 @@
 package com.jwt.authentication.model;
 
+import java.util.Date;
 import java.util.Set;
 
 import jakarta.persistence.CascadeType;
@@ -22,6 +23,7 @@ public class Product {
 	private String prodDesc;
 	private Double price;
 	private Double discountPrice;
+	private Date expiryDate;
 	
 	 @ManyToMany(fetch = FetchType.EAGER, cascade=CascadeType.ALL)
 	 @JoinTable(name="product_images",
@@ -82,15 +84,33 @@ public class Product {
 		this.productImages = productImages;
 	}
 
-	public Product(String name, String prodDesc, Double price, Double discountPrice, Set<ImageModel> productImages) {
+	public Date getExpiryDate() {
+		return expiryDate;
+	}
+
+	public void setExpiryDate(Date expiryDate) {
+		this.expiryDate = expiryDate;
+	}
+
+	public Product(Integer id, String name, String prodDesc, Double price, Double discountPrice, Date expiryDate,
+			Set<ImageModel> productImages) {
+		super();
+		this.id = id;
 		this.name = name;
 		this.prodDesc = prodDesc;
 		this.price = price;
 		this.discountPrice = discountPrice;
+		this.expiryDate = expiryDate;
 		this.productImages = productImages;
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Product [id=" + id + ", name=" + name + ", prodDesc=" + prodDesc + ", price=" + price
+				+ ", discountPrice=" + discountPrice + ", expiryDate=" + expiryDate + ", productImages=" + productImages
+				+ "]";
+	}
+
 	
 	
 }

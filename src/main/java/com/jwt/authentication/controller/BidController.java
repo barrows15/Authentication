@@ -54,4 +54,16 @@ public class BidController {
 			return null;
 		}
 	}
+	
+
+	@GetMapping("/bid/getByProduct/{productId}")
+	public ResponseEntity<List<BidDetail>> getByProduct(@PathVariable("productId") Long productId) {
+		try {
+			return ResponseEntity.ok(bidDetailService.getByProduct(productId));
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+			return null;
+		}
+	}
+	
 }

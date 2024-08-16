@@ -22,6 +22,7 @@ public class ProductServiceImpl implements ProductService{
 		product.setProdDesc(addProductRequest.getProdDesc());
 		product.setPrice(addProductRequest.getPrice());
 		product.setDiscountPrice(addProductRequest.getDiscountPrice());
+		product.setExpiryDate(addProductRequest.getExpiryDate());
 		product.setProductImages(addProductRequest.getProductImages());
 		productRepository.save(product);
 		return product;
