@@ -17,7 +17,7 @@ public class Product {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	private Long id;
 	
 	private String name;
 	private String prodDesc;
@@ -35,11 +35,11 @@ public class Product {
 	public Product() {
 	}
 
-	public Integer getId() {
+	public Long getId() {
 		return id;
 	}
 
-	public void setId(Integer id) {
+	public void setId(Long id) {
 		this.id = id;
 	}
 
@@ -92,7 +92,7 @@ public class Product {
 		this.expiryDate = expiryDate;
 	}
 
-	public Product(Integer id, String name, String prodDesc, Double price, Double discountPrice, Date expiryDate,
+	public Product(Long id, String name, String prodDesc, Double price, Double discountPrice, Date expiryDate,
 			Set<ImageModel> productImages) {
 		super();
 		this.id = id;

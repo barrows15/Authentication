@@ -55,7 +55,6 @@ public class BidController {
 		}
 	}
 	
-
 	@GetMapping("/bid/getByProduct/{productId}")
 	public ResponseEntity<List<BidDetail>> getByProduct(@PathVariable("productId") Long productId) {
 		try {
